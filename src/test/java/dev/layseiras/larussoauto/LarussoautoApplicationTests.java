@@ -1,10 +1,10 @@
-package dev.layseiras.larussocars;
+package dev.layseiras.larussoauto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LarussocarsApplicationTests {
+class LarussoautoApplicationTests {
 
 	@Test
 	void contextLoads() {

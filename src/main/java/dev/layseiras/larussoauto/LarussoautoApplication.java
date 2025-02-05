@@ -1,13 +1,13 @@
-package dev.layseiras.larussocars;
+package dev.layseiras.larussoauto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LarussocarsApplication {
+public class LarussoautoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LarussocarsApplication.class, args);
+		SpringApplication.run(LarussoautoApplication.class, args);
 	}
 
 }
