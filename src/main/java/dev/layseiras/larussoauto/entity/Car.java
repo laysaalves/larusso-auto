@@ -1,24 +1,26 @@
 package dev.layseiras.larussoauto.entity;
 
+import dev.layseiras.larussoauto.enums.CarModel;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_car")
 public class Car extends Generic {
 
-    @Column(name="name", nullable=false, length=100)
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
 
-    @Column(name="brand", nullable=false)
+    @Column(name = "brand", nullable = false)
     private String brand;
 
-    @Column(name="model", nullable=false, length=100)
-    private String model;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "model", nullable = false, length = 100)
+    private CarModel model;
 
-    @Column(name="version", nullable=false)
+    @Column(name = "version", nullable = false)
     private String version;
 
-    @Column(name="produced_quantity", nullable=false)
+    @Column(name = "produced_quantity", nullable = false)
     private int producedQuantity;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -29,7 +31,7 @@ public class Car extends Generic {
         super();
     }
 
-    public Car(String name, String brand, String model, String version, int producedQuantity) {
+    public Car(String name, String brand, CarModel model, String version, int producedQuantity) {
         super();
         this.name = name;
         this.brand = brand;
@@ -54,11 +56,11 @@ public class Car extends Generic {
         this.brand = brand;
     }
 
-    public String getModel() {
+    public CarModel getModel() {
         return model;
     }
 
-    public void setModel(String model) {
+    public void setModel(CarModel model) {
         this.model = model;
     }
 
@@ -76,5 +78,24 @@ public class Car extends Generic {
 
     public void setProducedQuantity(int producedQuantity) {
         this.producedQuantity = producedQuantity;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", brand='" + brand + '\'' +
+                ", model=" + model +
+                ", version='" + version + '\'' +
+                ", producedQuantity=" + producedQuantity +
+                '}';
     }
 }
